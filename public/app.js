@@ -15,7 +15,7 @@ async function sendMessage() {
 
   appendMessage("bot", "Searching for movies...");
 
-  const res = await fetch("/api/chat", {
+  const res = await fetch("https://moviebot-1uev.onrender.com/api/chat", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ message }),
