@@ -1,0 +1,172 @@
+/* ---------- GLOBAL LAYOUT ---------- */
+body {
+  background-color: #0e0e0e;
+  color: #f5f5f5;
+  font-family: 'Roboto', 'Segoe UI', sans-serif;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* ---------- MAIN CONTAINER ---------- */
+.chat-container {
+  width: 90%;
+  max-width: 700px;
+  background-color: #1a1a1a;
+  border: 1px solid #2c2c2c;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
+}
+
+/* ---------- HEADER ---------- */
+.chat-container h2 {
+  text-align: center;
+  color: #f5c518; /* IMDB yellow */
+  margin-bottom: 15px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* ---------- CHAT AREA ---------- */
+#chatbox {
+  height: 420px;
+  overflow-y: auto;
+  border-radius: 6px;
+  padding: 15px;
+  background: #121212;
+  margin-bottom: 12px;
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.5);
+  scrollbar-width: thin;
+  scrollbar-color: #f5c518 #121212;
+}
+
+#chatbox::-webkit-scrollbar {
+  width: 6px;
+}
+
+#chatbox::-webkit-scrollbar-thumb {
+  background-color: #f5c518;
+  border-radius: 10px;
+}
+
+/* ---------- MESSAGE BUBBLES ---------- */
+.message {
+  margin: 10px 0;
+  padding: 10px 14px;
+  border-radius: 12px;
+  max-width: 85%;
+  line-height: 1.4;
+  word-wrap: break-word;
+}
+
+.user {
+  background: #2c2c2c;
+  color: #f5f5f5;
+  margin-left: auto;
+  text-align: right;
+  border: 1px solid #3a3a3a;
+}
+
+.bot {
+  background: #181818;
+  border: 1px solid #3a3a3a;
+  color: #f5c518;
+}
+
+/* ---------- INPUT SECTION ---------- */
+.input-area {
+  display: flex;
+  gap: 10px;
+  background: #121212;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #2c2c2c;
+}
+
+input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  background-color: #1e1e1e;
+  color: #f5f5f5;
+}
+
+input::placeholder {
+  color: #888;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  background: #f5c518;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  background: #e2b417;
+}
+
+/* ---------- MOVIE CARDS ---------- */
+.movie-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  background: #1f1f1f;
+  border: 1px solid #2a2a2a;
+  padding: 12px;
+  border-radius: 10px;
+  margin: 10px 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.movie-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 18px rgba(245, 197, 24, 0.2);
+}
+
+.movie-card img {
+  width: 90px;
+  border-radius: 6px;
+  border: 1px solid #333;
+  background: #000;
+}
+
+.movie-card strong {
+  color: #f5c518;
+  font-size: 1.05rem;
+}
+
+.movie-card em {
+  color: #ccc;
+  font-style: normal;
+}
+
+.movie-card p {
+  font-size: 0.9rem;
+  color: #aaa;
+  margin: 4px 0;
+  line-height: 1.4;
+}
+
+.movie-card a {
+  display: inline-block;
+  color: #f5c518;
+  font-size: 0.85rem;
+  text-decoration: none;
+  margin-top: 5px;
+}
+
+.movie-card a:hover {
+  text-decoration: underline;
+}
