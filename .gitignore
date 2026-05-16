@@ -1,20 +1,5 @@
-# Node.js
-node_modules/
-
-# Logs
-logs/
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# Environment variables
+node_modules
 .env
-
-# Vercel
-.vercel/
-
-# IDE / OS
-.vscode/
-.DS_Store
-*.swp
+read.txt
+read
+read.txt

@@ -1,22 +1,69 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Movie Recommendation Chatbot</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>FlickBot</title>
+  <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
-  <div class="chat-container">
-    <h2>🎥 Movie Recommendation Chatbot</h2>
-    <div id="chatbox"></div>
+  <header class="topbar">
+    <h1>FlickBot</h1>
+  </header>
 
-    <div class="input-area">
-      <input id="userInput" type="text" placeholder="Ask for a genre... (e.g. action, romance, horror)" />
-      <button id="sendBtn">Send</button>
+  <main class="container">
+    <aside class="left">
+      <div class="search-card">
+        <h2>Search Movies</h2>
+        <label>Title
+          <input id="titleInput" placeholder="e.g. Inception"/>
+        </label>
+        <label>Genre
+          <input id="genreInput" placeholder="e.g. Action or 28 (id)"/>
+        </label>
+        <label>Year
+          <input id="yearInput" placeholder="e.g. 2010" type="number"/>
+        </label>
+        <button id="searchBtn">Search</button>
+        <div id="leftNote" class="note">Tip: leave title blank to search by genre/year.</div>
+      </div>
+    </aside>
+
+    <section class="center">
+      <div id="moviesGrid" class="grid"></div>
+    </section>
+
+    <!-- Right panel removed -->
+    <aside class="right"></aside>
+  </main>
+
+  <!-- popup for movie details -->
+  <div id="popup" class="popup hidden" role="dialog" aria-modal="true">
+    <div class="popup-inner">
+      <button id="closePopup" class="close">✕</button>
+      <div id="popupContent"></div>
     </div>
   </div>
 
+  <!-- Gemini Chatbot Floating Icon and Popup -->
+  <div id="chatIcon" class="chat-icon">💬</div>
+
+  <div id="chatPopup" class="chatbot-popup hidden">
+    <div class="chatbot-header">
+      <span>FlickBot Chat</span>
+      <button id="closeChat" class="close-chat">✕</button>
+    </div>
+
+    <div id="chatbotMessages" class="chatbot-messages"></div>
+
+    <div class="chatbot-input-area">
+      <input id="chatbotInput" type="text" placeholder="Ask about movies..." autocomplete="off"/>
+      <button id="sendChat">Send</button>
+      <button id="clearChat">Clear</button>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
