@@ -1,0 +1,30 @@
+# Render Blueprint for FlickBot-Py
+# Place this file at the ROOT of your GitHub repo (same folder as app.py),
+# then in Render: New + -> Blueprint -> connect the repo.
+services:
+  - type: web
+    name: flickbot-py
+    runtime: python
+    plan: free
+    region: singapore          # oregon | frankfurt | singapore | ohio | virginia
+    branch: main
+    autoDeploy: true
+
+    buildCommand: "pip install --upgrade pip && pip install -r requirements.txt"
+    # Render injects $PORT — gunicorn must bind to it, not to 3000.
+    # "app:app" = the file app.py, and the Flask object named `app` inside it.
+    startCommand: "gunicorn app:app --bind 0.0.0.0:$PORT --workers 2 --threads 4 --timeout 120"
+
+    healthCheckPath: /
+
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11.9"
+      # Secrets: leave sync:false so Render prompts you to paste the value
+      # in the dashboard instead of committing keys to git.
+      - key: TMDB_API_KEY
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GEMINI_MODEL
+        value: gemini-1.5-flash
